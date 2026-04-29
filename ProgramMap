@@ -11,6 +11,17 @@ II. Party Generator
   0. Part Generator
     4 Heroes and 2 Followers
   1. Hero Generator
+    a. Name
+    b. Origin
+    c. Agility
+    d. Speed
+    e. Combat
+    f. Toughness
+    g. Luck
+    h. Will
+    i. Casting
+    j. Proficiencies and Spells
+    k. Equipment
   2. Follower Generator
   3. Warband Resources
   4. Spell Selection
