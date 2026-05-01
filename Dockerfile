@@ -4,20 +4,21 @@
 # To mount local directory and run container:
 #	docker run  --rm -it -v ${PWD}:/usr/src/game <image_name>
 
-# Base Ubuntu Image
-FROM ubuntu:latest
+# Base Ubuntu Image (Alpine is 5Mb)
+FROM alpine as build-env
+# Install build-base meta package inside build-env
+RUN apk add --no--cache build-base
+# Copy source files to container
+COPY . /source
+# Change directory to /game
+WORKDIR /source
+# Compile source code
+RUN make
 
-# Update and Install C Compiler Toolchain
-RUN apt-get update && apt-get install -y \
-	build-essential \
-	cmake \
-	&& rm -rf /var/lib/apt/lists/*
-
-# Set working directory inside container
-WORKDIR /usr/src/
-
-# Copy game files to inside of container
-COPY game
-
-# Default Command To Open a Shell
-CMD ["/bin/bash"]
+## To run the program in a new container
+# FROM alpine
+## Copy executable
+# COPY --from=build-env /game/main /game/main
+# WORKDIR /game
+## Run program
+# CMD ["/game/main"]
