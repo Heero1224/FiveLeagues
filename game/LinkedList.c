@@ -61,7 +61,7 @@ void linkedlist_pop(LinkedList * l) {
 	l->length--;
 }
 /* gets Node at index of linked list */
-void * linkedlist_get_node(LinkedList * l, int index) {
+Node * linkedlist_get_node(LinkedList * l, int index) {
 	Node * node = linkedlist_get_node(l, index);
 	return node != NULL ? node->val : NULL;
 }

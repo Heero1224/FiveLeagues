@@ -10,27 +10,62 @@ include "LinkedList.h"
 
 int main() {
 	/* create LL */
-	test_linked_list = linkedlist_init();
-	/* add 1, remove 1 */
-	printf("Test 1\n");
-	assert(test_linked_list->length==0);
-	linkedlist_add(test_linked_list, 1);
-	assert(test_linked_list->length==1);
-	assert(test_linked_list->head);
-	assert(test_linked_list->head->data==1);
-	linkedlist_pop(test_linked_list);
-	assert(test_linked_list->length==0);
-	assert(test_linked_list->head==NULL);
-	
-	/* add 20 things to test_linked_list */
-	printf("Test 2\n");
-	for (int i = 0; i < 21; i++) {
-		linkedlist_add(test_linked_list, i);
+	LinkedList * test_linked_list = linkedlist_init();
+	/* add test */
+	test1(test_linked_list);
+	/* remove test */
+	test2(test_linked_list);
+	test3(test_linked_list);
+}
+/* add testing */
+void test1(LinkedList * l) {
+	printf("##### ADD TESTING #####\n");
+	/* add to back */
+	for (int i=1; i<6; i++) {
+		linkedlist_add(l, i);
+		assert(l->length==i);
+		assert(l->head != NULL);
 	}
-	assert(test_linked_list->length==20);
-	curr = test_linked_list->head;
-	for (int i=0; i<21; i++) {
+	/* add to front */
+	for (int i=-6; i>-11; i--) {
+		linkedlist_push(l, i);
+		assert(l->length==(i*(-1)));
+		assert(l->head->data==i);
+	}
+	assert(l->length==10);
+	/* add at index 5*/
+	for (int i=0; i>-6; i--) {
+		linkedlist_insert(l, i);
+		assert(l->length==(10+(i*(-1))));
+		Node * temp;
+		temp = linkedlist_get_node(l, 5);
+		assert(temp->data==i);
+	}
+	assert(l->length==16);
+	/* Checking all data values */
+	Node * curr = l->head;
+	for (int i=-10; i<6; i++) {
 		assert(curr->data==i);
+		curr=curr->next;
 	}
-	
+	/* l should now be [-10::5] */
+}
+/* remove nodes testing */
+void test2(LinkedList * l) {
+	assert(l->length==16);
+	assert(l->head->dat==-10);
+	/* remove front */
+	for (int i=0; i<16; i++) {
+		linkedlist_pop(l);
+	}
+	assert(l->length==0);
+	assert(l->head==NULL);
+	test1(l);
+	/*remove back */
+	for (int i=16; i>0;i--) {
+		linkedlist_remove_index(l, i);
+		assert(l->length==(i-1));
+	}
+	assert(l->length==0);
+	assert(l->head==NULL);
 }
