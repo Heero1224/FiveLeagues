@@ -6,9 +6,11 @@ Purpose: Generates a random hero
 typedef struct Hero {
 	char * name;
 	char * origin;
+	char * background;
 	// attributes
 	int agility;
 	int speed;
+	int dash;
 	int combat;
 	int toughness;
 	int luck;
@@ -19,7 +21,7 @@ typedef struct Hero {
 	LinkedList * spells;
 	LinkedList equipment;
 	int xp;
-	int level;
+	int lvl;
 }Hero;
 
 /* Create new template hero with base stats */
