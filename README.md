@@ -1,5 +1,5 @@
 # FiveLeagues
-'''
+```
 Procedurally generated adventure game 
 
 Expected Behaviors from MAIN MENU:
@@ -34,4 +34,4 @@ New Game
     3) Enemy Plans
     4) Victory and Defeat
     5) The Next Campaign
-''''
+```
