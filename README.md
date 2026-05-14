@@ -34,4 +34,10 @@ New Game
     3) Enemy Plans
     4) Victory and Defeat
     5) The Next Campaign
+Load Game
+  Loads game to current campaign state as of the start of the preparation phase
+Generate Party
+  Generates a random party to optionally be saved
+EXIT
+  Quits program
 ```
