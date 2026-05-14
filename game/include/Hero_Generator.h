@@ -36,6 +36,8 @@ LinkedList * hero_remove_all(Hero * hero);
 int hero_equip_item(Hero * hero, Item * item);
 /* Unequip an item from Hero */
 int hero_unequip_item(Hero * hero, Item * item);
+/* Returns a string description of a hero */
+char * hero_tostring(Hero * hero);
 
 
 
